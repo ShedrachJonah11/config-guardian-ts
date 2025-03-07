@@ -18,13 +18,13 @@
 Install Config Guardian via npm:
 
 ```sh
-npm install @shedrachjonah/config-guardian
+npm install @/config-guardian
 ```
 
 or via yarn:
 
 ```sh
-yarn add @shedrachjonah/config-guardian
+yarn add @/config-guardian
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ DATABASE_URL=mongodb://localhost:27017/mydb
 Use Config Guardian in your project:
 
 ```ts
-import { ConfigGuardian } from '@shedrachjonah/config-guardian';
+import { ConfigGuardian } from '@/config-guardian';
 import Joi from 'joi';
 
 const schema = Joi.object({
@@ -88,7 +88,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-📧 **Shedrach Jonah** – [GitHub](https://github.com/ShedrachJonah11) – [Email](mailto:fakileemmanuel@gmail.com)
+📧 **Shedrach Jonah** – [GitHub](https://github.com/ShedrachJonah11)
 
 ---
 
