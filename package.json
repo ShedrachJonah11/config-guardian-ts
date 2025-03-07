@@ -1,0 +1,32 @@
+{
+  "name": "config-guardian-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Shedrac Jonah",
+  "license": "MIT",
+  "description": "Config Guardian is a smart configuration manager that simplifies handling environment variables and settings across different environments. It provides validation, helpful error messages, and supports multiple configuration sources such as .env files, JSON, and command-line arguments. Designed for reliability and ease of use in modern JavaScript and TypeScript projects.",
+  "dependencies": {
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "joi": "^17.13.3",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.9",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShedrachJonah11/config-guardian-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ShedrachJonah11/config-guardian-ts/issues"
+  },
+  "homepage": "https://github.com/ShedrachJonah11/config-guardian-ts#readme"
+}
