@@ -47,7 +47,7 @@ const schema = Joi.object({
   DATABASE_URL: Joi.string().uri().required(),
 });
 
-const config = new ConfigGuardian(schema);
+const config = new ConfigGuardian('./.env'); // Pass config file path
 console.log(config.get('PORT')); // 3000
 console.log(config.get('DATABASE_URL')); // mongodb://localhost:27017/mydb
 ```
