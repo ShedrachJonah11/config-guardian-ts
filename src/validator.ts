@@ -1,11 +1,12 @@
 // src/validator.ts
 import Joi, { SchemaMap } from "joi";
+import { createSchema } from "./schemaHelper";
 
 export function validateConfig(
   config: Record<string, string>,
   schema: SchemaMap
 ) {
-  const joiSchema = Joi.object(schema);
+  const joiSchema = createSchema(schema);
   const { error } = joiSchema.validate(config, { abortEarly: false });
   if (error) {
     throw new Error(
