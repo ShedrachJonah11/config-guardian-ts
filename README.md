@@ -1,94 +1,66 @@
 # Config Guardian
 
-**Config Guardian** is a smart configuration manager designed to simplify handling environment variables and settings across different environments. It provides validation, helpful error messages, and supports multiple configuration sources such as `.env` files, JSON, and command-line arguments.
+Config Guardian is a smart configuration manager that simplifies handling environment variables and settings across different environments. It provides validation, helpful error messages, and supports multiple configuration sources such as **.env files, JSON, and YAML**. Designed for reliability and ease of use in modern JavaScript and TypeScript projects.
 
 ## Features
-
-- ✅ **Environment Variable Management** - Load and validate environment variables effortlessly.
-- 🔄 **Multiple Configuration Sources** - Supports `.env` files, JSON, and command-line arguments.
-- 🔍 **Schema Validation** - Uses Joi to ensure correct configuration values.
-- 📢 **Clear Error Messages** - Provides helpful error messages for missing or invalid configurations.
-- 🚀 **TypeScript Support** - Built with TypeScript for type safety and scalability.
-- 🌎 **Cross-Platform Compatibility** - Works on Windows, macOS, and Linux.
+- ✅ Supports **.env**, **JSON**, and **YAML** configuration files
+- ✅ Schema validation using **Joi**
+- ✅ Helpful error messages for missing or invalid configurations
+- ✅ CLI support for managing configurations
+- ✅ Written in **TypeScript** for type safety
 
 ## Installation
 
-Install Config Guardian via npm:
+You can install Config Guardian via npm:
 
 ```sh
-npm install @/config-guardian
-```
-
-or via yarn:
-
-```sh
-yarn add @/config-guardian
+npm install config-guardian-ts
 ```
 
 ## Usage
 
-### 1️⃣ Basic Setup
-
-Create a `.env` file:
-
-```env
-PORT=3000
-DATABASE_URL=mongodb://localhost:27017/mydb
-```
-
-Use Config Guardian in your project:
+### Import and Initialize
 
 ```ts
-import { ConfigGuardian } from '@/config-guardian';
-import Joi from 'joi';
+import { ConfigGuardian } from "config-guardian-ts";
 
-const schema = Joi.object({
+const config = new ConfigGuardian(".env", "config.json", "config.yaml");
+```
+
+### Get Config Values
+
+```ts
+const apiKey = config.get("API_KEY");
+console.log(apiKey);
+```
+
+### Validate Config Schema
+
+```ts
+import Joi from "joi";
+
+const schema = {
+  API_KEY: Joi.string().required(),
   PORT: Joi.number().default(3000),
-  DATABASE_URL: Joi.string().uri().required(),
-});
+};
 
-const config = new ConfigGuardian(schema);
-console.log(config.get('PORT')); // 3000
-console.log(config.get('DATABASE_URL')); // mongodb://localhost:27017/mydb
+config.validate(schema);
 ```
 
-### 2️⃣ Load from JSON
-
-```ts
-const config = new ConfigGuardian(schema, {
-  source: 'json',
-  filePath: './config.json',
-});
-```
-
-## Scripts
+## CLI Usage
 
 ```sh
-npm run build    # Compile TypeScript
-npm run dev      # Run in development mode
-npm run test     # Run tests with Jest
-npm start        # Run compiled JavaScript
+npx config-guardian --env .env --json config.json --yaml config.yaml list
 ```
 
 ## Contributing
 
-Contributions are welcome! To contribute:
+We welcome contributions! Feel free to open issues or submit pull requests.
 
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature-branch`
-3. Commit changes: `git commit -m "Add feature"`
-4. Push to GitHub: `git push origin feature-branch`
-5. Open a pull request.
+## Repository
+[GitHub Repo](https://github.com/ShedrachJonah11/config-guardian-ts)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-📧 **Shedrach Jonah** – [GitHub](https://github.com/ShedrachJonah11)
-
----
-
-⭐ **If you find this useful, give it a star on GitHub!** 🚀
+MIT License
 
