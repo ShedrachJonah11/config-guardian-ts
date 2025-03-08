@@ -1,7 +1,5 @@
 # Config Guardian
 
-![Config Guardian](https://your-image-url.com/logo.png) <!-- Replace with an actual logo if available -->
-
 **Config Guardian** is a smart configuration manager designed to simplify handling environment variables and settings across different environments. It provides validation, helpful error messages, and supports multiple configuration sources such as `.env` files, JSON, and command-line arguments.
 
 ## Features
